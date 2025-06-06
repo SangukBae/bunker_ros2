@@ -5,7 +5,7 @@
   <param  name="robot_description"  textfile="$(find scout_description)/urdf/scout_mini.urdf" />
   <param  name="use_gui"  value="$(arg gui)" />
   <!-- Launch  the joint state publisher -->
-  <node  name="joint_state_publisher"  pkg="joint_state_publisher"  type="joint_state_publisher" />
+  <node  name="joint_state_publisher_gui"  pkg="joint_state_publisher_gui"  type="joint_state_publisher_gui" />
   <!-- Launch  the robot state publisher -->
   <node  name="robot_state_publisher"  pkg="robot_state_publisher"  type="robot_state_publisher" />
   <!-- Loading rviz files -->

@@ -2,7 +2,11 @@
 scout_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
-
+# /gazebo_ros_control/pid_gains:
+#     front_left_wheel: {p: 100.0, i: 10, d: 0.5} 
+#     front_right_wheel: {p: 100.0, i: 10, d: 0.5} 
+#     rear_left_wheel: {p: 100.0, i: 10, d: 0.5} 
+#     rear_right_wheel: {p: 100.0, i: 10, d: 0.5} 
 # Joint velocity controllers ---------------------------------
 scout_motor_fr_controller:
   type: velocity_controllers/JointVelocityController
@@ -10,7 +14,6 @@ scout_motor_fr_controller:
   pid:
     p: 5.0
     i: 20.0
-    d: 0.0
     i_clamp: 100.0
 
 scout_motor_fl_controller:
@@ -19,7 +22,6 @@ scout_motor_fl_controller:
   pid:
     p: 5.0
     i: 20.0
-    d: 0.0
     i_clamp: 100.0
 
 scout_motor_rl_controller:
@@ -28,7 +30,6 @@ scout_motor_rl_controller:
   pid:
     p: 5.0
     i: 20.0
-    d: 0.0
     i_clamp: 100.0
 
 scout_motor_rr_controller:
@@ -37,5 +38,4 @@ scout_motor_rr_controller:
   pid:
     p: 5.0
     i: 20.0
-    d: 0.0
     i_clamp: 100.0

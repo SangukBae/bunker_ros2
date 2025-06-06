@@ -37,7 +37,7 @@ void ScoutSkidSteer::SetupSubscription() {
 void ScoutSkidSteer::TwistCmdCallback(
     const geometry_msgs::Twist::ConstPtr &msg) {
   std_msgs::Float64 motor_cmd[4];
-
+  double k = 1.4;
   double driving_vel = msg->linear.x;
   double steering_vel = msg->angular.z;
 
@@ -46,10 +46,10 @@ void ScoutSkidSteer::TwistCmdCallback(
   double right_side_velocity =
       (driving_vel + steering_vel * SCOUT_WHEELBASE) / SCOUT_WHEEL_RADIUS;
 
-  motor_cmd[0].data = right_side_velocity;
-  motor_cmd[1].data = -left_side_velocity;
-  motor_cmd[2].data = -left_side_velocity;
-  motor_cmd[3].data = right_side_velocity;
+  motor_cmd[0].data = right_side_velocity *k;
+  motor_cmd[1].data = -left_side_velocity *k;
+  motor_cmd[2].data = -left_side_velocity *k;
+  motor_cmd[3].data = right_side_velocity *k;
 
   motor_fr_pub_.publish(motor_cmd[0]);
   motor_fl_pub_.publish(motor_cmd[1]);
