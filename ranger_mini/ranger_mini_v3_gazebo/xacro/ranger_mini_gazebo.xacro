@@ -14,10 +14,10 @@
     <visual>
       <origin
         xyz="0 0 0.0"
-        rpy="3.14 0 0" />
+        rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ranger_mini_v3/meshes/ranger_mini3.dae" />
+          filename="package://ranger_mini_v3/meshes/ranger_base.dae" scale="1000 1000 1000" />
       </geometry>
       <material
         name="">
@@ -50,11 +50,10 @@
     </inertial>
     <visual>
       <origin
-        xyz="-0.248 -0.113 0.155"
-        rpy="1.57 0 3.14" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://ranger_mini_v3/meshes/ranger_mini_v3_wheel_right.dae" />
+        <mesh filename="package://ranger_mini_v3/meshes/steering_wheel.dae" scale="10 10 10"/>
       </geometry>
       <material
         name="">
@@ -97,9 +96,9 @@
                 <inertia ixx="0.02047" ixy="0.0" ixz="0.0" iyy="0.02047" iyz="0.0" izz="0.0324"/>            
                 </inertial>
             <visual>
-                <origin xyz="0 0 0" rpy="1.57 0 0" />
+                <origin xyz="0 0 0" rpy="3.14 0 0" />
                 <geometry>
-                    <cylinder length="0.01" radius="0.01" />
+                <mesh filename="package://ranger_mini_v3/meshes/wheel_v3.dae" scale="10 10 10"/>
                 </geometry>
             </visual>
             <collision>
@@ -141,11 +140,10 @@
     </inertial>
     <visual>
       <origin
-        xyz="-0.248 -0.125 -0.192"
-        rpy="1.57 0.0 3.14" />
+        xyz="0 0 0"
+        rpy="0 0 3.14" />
       <geometry>
-        <mesh
-          filename="package://ranger_mini_v3/meshes/ranger_mini_v3_wheel.dae" />
+        <mesh filename="package://ranger_mini_v3/meshes/steering_wheel.dae" scale="10 10 10"/>
       </geometry>
       <material
         name="">
@@ -187,13 +185,13 @@
                 <inertia ixx="0.02047" ixy="0.0" ixz="0.0" iyy="0.02047" iyz="0.0" izz="0.0324"/>            
             </inertial>
             <visual>
-                <origin xyz="0 0 0" rpy="1.57 0 0" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <cylinder length="0.01" radius="0.01" />
+                  <mesh filename="package://ranger_mini_v3/meshes/wheel_v3.dae" scale="10 10 10"/>
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="1.57 0 0" />
+                <origin xyz="0 0 -0.005" rpy="1.57 0 0" />
                 <geometry>
                     <cylinder length="0.08" radius="0.09" />
                 </geometry>
@@ -230,11 +228,10 @@
     </inertial>
     <visual>
        <origin        
-        xyz="-0.241 -0.11 0.155"
-        rpy="1.57 0 3.14" />
+        xyz="0 0 0"
+        rpy="0 0 3.14" />
       <geometry>
-        <mesh
-          filename="package://ranger_mini_v3/meshes/ranger_mini_v3_wheel_right.dae" />
+        <mesh filename="package://ranger_mini_v3/meshes/steering_wheel.dae" scale="10 10 10"/>
       </geometry>
       <material
         name="">
@@ -276,13 +273,13 @@
                 <inertia ixx="0.02047" ixy="0.0" ixz="0.0" iyy="0.02047" iyz="0.0" izz="0.0324"/>            
             </inertial>
             <visual>
-                <origin xyz="0 0 0" rpy="1.57 0 0" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <cylinder length="0.01" radius="0.01" />
+                  <mesh filename="package://ranger_mini_v3/meshes/wheel_v3.dae" scale="10 10 10"/>
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0.005 0.005 -0.005" rpy="1.57 0 0" />
+                <origin xyz="0.00 0.00 -0.005" rpy="1.57 0 0" />
                 <geometry>
                     <cylinder length="0.08" radius="0.09" />
                 </geometry>
@@ -308,9 +305,9 @@
             <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
         </inertial>
         <visual>
-            <origin  xyz="-0.262 -0.095 0.155" rpy="1.57 0 3.14 " />
+            <origin  xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                    <mesh filename="package://ranger_mini_v3/meshes/ranger_mini_v3_wheel_right.dae" />
+            <mesh filename="package://ranger_mini_v3/meshes/steering_wheel.dae" scale="10 10 10"/>
 
             </geometry>
         </visual>
@@ -336,13 +333,13 @@
                 <inertia ixx="0.02047" ixy="0.0" ixz="0.0" iyy="0.02047" iyz="0.0" izz="0.0324"/>            
             </inertial>
             <visual>
-                <origin xyz="0.0 0.0 0.0" rpy="1.57 0 0" />
+                <origin xyz="0.0 0.0 0.0" rpy="3.14 0 0" />
                 <geometry>
-                    <cylinder length="0.01" radius="0.01" />
+                    <mesh filename="package://ranger_mini_v3/meshes/wheel_v3.dae" scale="10 10 10"/>
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="-0.015 0.02 -0.005" rpy="1.57 0 0" />
+                <origin xyz=" 0 0 -0.005" rpy="1.57 0 0" />
                 <geometry>
                     <cylinder length="0.08" radius="0.09" />
                 </geometry>
