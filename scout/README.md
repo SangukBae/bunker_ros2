@@ -1,8 +1,8 @@
 [TOC]
 
-# Scout Simulation Operation Process
+# Scout仿真操作文档
 
-## 1.	Introduction of Function Package
+## 一、功能包介绍
 
 ```
 ├── scout_control
@@ -10,51 +10,45 @@
 └── scout_gazebo_sim
 ```
 
-​	scout_gazebo_sim：The folder is gazebo simulation function package
+​	scout_gazebo_sim：该文件夹为gazebo仿真功能包
 
-​	scout_control: The folder is simulation controller function package
+​	scout_control: 该文件夹为仿真控制器功能包
 
-​	scout_description: The folder is the function package of model file
+​	scout_description: 该文件夹为模型文件功能包
 
-## 2.	Environment
+## 二、环境
 
-### Development Environment
+### 开发环境
 
 ​	ubuntu 18.04 + [ROS Melodic desktop full](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
-### Download and install required function package
+### 下载安装必备功能包
 
-​	Download and install ros-control function package, ros-control is the robot control middleware provided by ROS
+​	下载安装ros-control功能包，ros-control是ROS提供的机器人控制中间件
 
 ```
 sudo apt-get install ros-melodic-ros-control
 ```
 
-​	Download and install ros-controllers function package, ros-controllers are the kinematics plug-in of common models provided by ROS
+​	下载安装ros-controllers功能包，ros-controllers是ROS提供的常见车型运动学插件
 
 ```
 sudo apt-get install ros-melodic-ros-controllers
 ```
 
-​	Download and install gazebo-ros function package, gazebo-ros is the communication interface between gazebo and ROS, and connect the ROS and Gazebo
+​	下载安装gazebo-ros功能包，gazebo-ros是gazebo和ROS之间的通信接口，将ROS和Gazebo连接起来
 
 ```
 sudo apt-get install ros-melodic-gazebo-ros
 ```
 
-​	Download and install gazebo-ros-control function package, gazebo-ros-control is the communication standard controller between ROS and Gazebo
+​	下载安装gazebo-ros-control功能包， gazebo-ros-control是在ROS和Gazebo之间通信的标准控制器
 
 ```
 sudo apt-get install ros-melodic-gazebo-ros-control
 ```
 
-​	Download and install joint-state-publisher-gui package.This package is used to visualize the joint control.
-
-```
-sudo apt-get install ros-melodic-joint-state-publisher-gui 
-```
-
-​	Download and install teleop-twist-keyboard function package, telop-twist-keyboard is keyboard control function package, the robot can be controlled to move forward, left, right and backward through "i", "j", "l",and "," on the keyboard
+​	下载安装teleop-twist-keyboard 功能包，teleop-twist-keyboard是键盘控制功能包，可以通过键盘上的“i”，“j”，“l”，“，”控制机器人前进，向左，向右，后退
 
 ```
 sudo apt-get install ros-melodic-teleop-twist-keyboard 
@@ -62,58 +56,59 @@ sudo apt-get install ros-melodic-teleop-twist-keyboard
 
 
 
-## 3.	About Usage
+## 三、用法
 
-### 1、1.	Create workspace, download simulation model function package and compile
+### 1、创建工作空间、下载仿真模型功能包并编译
 
-​		Open a new terminal and create a workspace named scout_ws, enter in the terminal:
+​		打开一个新终端，创建一个工作空间，名字为scout_ws，在终端中输入：
 
 ```
 mkdir scout_ws
 ```
 
-​		Enter the scout_ws folder
+​		进入到scout_ws文件夹中
 
 ```
 cd scout_ws
 ```
 
-​		Create a folder to store function package named src
+​		创建一个用于存放功能包的文件夹，名字为src
 
 ```
 mkdir src
 ```
 
-​		Enter the src folder
+​		进入到src文件夹
 
 ```
 cd src
 ```
 
-​		Initialize folder
+​		初始化文件夹
 
 ```
 catkin_init_workspace
 ```
 
-​		Download simulation model function package
+​		下载仿真模型功能包
 
 ```
-git clone https://github.com/agilexrobotics/ugv_sim.git
+git clone https://github.com/agilexrobotics/ugv_sim/scout.git
 ```
 
-​		Enter the scout_ws folder
+​		进入scout_ws文件夹
 
 ```
 cd scout_ws
 ```
 
-​		Confirm whether the dependency of the function package is installed
+​		确认功能包的依赖有没有安装好
+
 ```
 rosdep install --from-paths src --ignore-src -r -y 
 ```
 
-​		Compile
+​		进行编译
 
 ```
 catkin_make
@@ -121,21 +116,21 @@ catkin_make
 
 
 
-### 2、2.	Run the star file of scout_v2 and scout_mini, and visualize the urdf file in Rviz
+### 2、运行scout_v2和scout_mini的启动文件，在Rviz中可视化urdf文件
 
-​	Enter the scout_ws folder
+​	进入到scout_ws文件夹
 
 ```
 cd scout_ws
 ```
 
-​	Declare the environment variable
+​	声明环境变量
 
 ```
 source devel/setup.bash
 ```
 
-​	Run the start file of scout_v2 model and visualize the model in Rviz
+​	运行scout_v2的模型启动文件，在Rviz中可视化模型
 
 ```
 roslaunch scout_description display_scout_v2.launch 
@@ -143,7 +138,7 @@ roslaunch scout_description display_scout_v2.launch
 
 ![img](image/scoutv2_rviz.png) 
 
-​	Run the start file of scout_mini model and visualize the model in Rviz
+​	运行scout_mini的模型启动文件，在Rviz中可视化模型
 
 ```
 roslaunch scout_description display_scout_mini.launch 
@@ -151,21 +146,21 @@ roslaunch scout_description display_scout_mini.launch
 
 ![img](image/scout_mini_rviz.png) 
 
-### 3、3.	Start the gazebo simulation environment of scout_v2 and scout_mini and control scout_v2 and scout_mini movement in the gazebo
+### 3、启动scout_v2和scout_mini的仿真环境，并在gazebo中控制scout_v2和scout_mini运动
 
-​	Enter the scout_ws folder
+​	进入到scout_ws文件夹
 
 ```
 cd scout_ws
 ```
 
-​	Declare the environment variable
+​	声明环境变量
 
 ```
 source devel/setup.bash
 ```
 
-​	Start the simulation environment of scout_v2
+​	启动scout_v2的仿真环境
 
 ```
 roslaunch scout_gazebo_sim scout_empty_world.launch
@@ -173,7 +168,7 @@ roslaunch scout_gazebo_sim scout_empty_world.launch
 
 ![img](image/scoutv2_gazebo.png) 
 
-#Control by keyboard, the scout2.0 and scout_mini can be controlled to move forward, left, right and backward through "i", "j", "l",and "," on the keyboard
+#键盘控制，启动键盘控制之后，可以通过“i”，“j”，“l”，“，”控制scout2.0和scout_mini，前进，向左，向右，后退
 
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
@@ -181,7 +176,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 ![img](image/teleop.png) 
 
-​	Start the simulation environment of scout_mini
+​	启动scout_mini的仿真环境
 
 ```
 roslaunch scout_gazebo_sim scout_mini_playpen.launch
@@ -189,7 +184,7 @@ roslaunch scout_gazebo_sim scout_mini_playpen.launch
 
 ![img](image/scout_mini_gazebo.png) 
 
-#Control by keyboard, the scout2.0 and scout_mini can be controlled to move forward, left, right and backward through "i", "j", "l",and "," on the keyboard
+#键盘控制，启动键盘控制之后，可以通过“i”，“j”，“l”，“，”控制scout2.0和scout_mini，前进，向左，向右，后退
 
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 

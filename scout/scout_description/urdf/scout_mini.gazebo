@@ -18,7 +18,7 @@
     </gazebo>
 
     <!-- kp spring constant, kd damping constant -->
-    <gazebo>
+    <!-- <gazebo>
         <mu1 value="1.0"/>
         <mu2 value="0.9"/>
         <kp value="10000000.0" />
@@ -26,7 +26,7 @@
         <fdir1 value="1 0 0"/>
         <minDepth value="0.001" />
         <maxContacts value="64"/>
-    </gazebo>
+    </gazebo> -->
 
         <gazebo reference="laser_link">
             <sensor type="ray" name="laser_sensor">
@@ -119,7 +119,7 @@
             <wheelbase>0.49</wheelbase>
             <wheelDiameter>0.16</wheelDiameter>
             <robotBaseFrame>base_link</robotBaseFrame>
-            <torque>100</torque>
+            <torque>1000</torque>
             <commandTopic>cmd_vel</commandTopic>
             <broadcastTF>false</broadcastTF>
             <odometryTopic>odom</odometryTopic>
