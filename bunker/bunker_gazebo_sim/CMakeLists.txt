@@ -1,24 +1,41 @@
-cmake_minimum_required(VERSION 3.02)
+cmake_minimum_required(VERSION 3.8)
 project(bunker_gazebo_sim)
 
-add_compile_options(-std=c++11)
+# Build system
+find_package(ament_cmake REQUIRED)
 
-find_package(catkin REQUIRED COMPONENTS    
-  roslaunch
-  roslint
-  roscpp
-  std_msgs
-  sensor_msgs
-  geometry_msgs
-  tf2
-  tf2_ros
-  gazebo_dev
-  gazebo_msgs
+# ------------------------------------------------------------------------------
+# Install resources (only if they exist)
+# ------------------------------------------------------------------------------
+set(DIRS_TO_INSTALL
+  launch
+  urdf
+  meshes
+  config
+  rviz
 )
 
+foreach(dir IN LISTS DIRS_TO_INSTALL)
+  if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}")
+    install(DIRECTORY ${dir}/
+      DESTINATION share/${PROJECT_NAME}/${dir}
+      PATTERN "*.pyc" EXCLUDE
+      PATTERN ".DS_Store" EXCLUDE
+    )
+  endif()
+endforeach()
 
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
+# ament resource index entry (recommended for ROS 2 packages)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/resource/${PROJECT_NAME}")
+  install(FILES resource/${PROJECT_NAME}
+    DESTINATION share/ament_index/resource_index/packages
+  )
+endif()
+
+# Install package manifest
+install(FILES package.xml
+  DESTINATION share/${PROJECT_NAME}
 )
 
+# Finalize
+ament_package()
