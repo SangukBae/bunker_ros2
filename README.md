@@ -39,29 +39,3 @@ Download and install gazebo you can go to the website :http://gazebosim.org/inst
 | SCOUT COBOT KIT   | √              | [SCOUT COBOT KIT](https://github.com/agilexrobotics/scout_cobot_sim) |
 | COBOT S KIT       | √              | [COBOT S KIT](https://github.com/agilexrobotics/cobot_s_sim) |
 
-
-
-## About usage
-
-1) clone the current repositories to your own workspace
-2) Go to you use product
-3) Each independent chassis product has its own independent instructions in the corresponding file directory
-
-### Ranger mini v2 & Ranger mini v3
-
-Because some models are too large to be uploaded to github, they are compressed and need to be extracted after downloading
-
-Ranger mini v2
-
-``` bash
-cd ranger_mini/ranger_mini_v2/meshes/
-unzip ranger_base.zip
-```
-
-Ranger mini v3
-
-```
-cd ranger_mini/ranger_mini_v3/meshes/
-unzip ranger_base.zip
-```
-
